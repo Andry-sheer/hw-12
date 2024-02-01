@@ -2960,7 +2960,7 @@ td {
   animation-delay: 2s;
   animation-fill-mode: forwards; */
 
-  animation: my-item 1s linear 1 forwards;
+  animation: my-item 1s alternate infinite;
 }
 
 @keyframes my-item {
@@ -3105,8 +3105,40 @@ td {
 }
 /**********************************************************************************/
 
+.bg-play {
+  background: transparent;
+}
+
 .warrior {
-  background: url('../images/warrior.png');
-  height: 3000px;
-  width: 3000px;
+  background: url('../images/pngegg.png');
+  height: 381px;
+  width: 280px;
+  animation: play-run .3s steps(5) infinite;
+  /* animation: "name", "time-scene",  "steps" "loop" ; */
+}
+
+@keyframes play-run {
+  /* 0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -465px;
+  } */
+
+  to {
+    background-position: -1400px;
+  }
+}
+
+.svg {
+  background: #33aa90;
+}
+
+.jeep {
+  padding-top: 20px;
+  width: 300px;
+  height: 300px;
+  fill: #212121;
+  stroke-dashoffset: 1000;
+  stroke-dasharray: 1000;
 }
