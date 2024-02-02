@@ -2932,6 +2932,11 @@ td {
 /******************************** less 12-2 *************************************/
 /*******************************  Animation  ***********************************/
 
+.bg-jeep {
+  background: .7;
+
+}
+
 .BG-anim {
   background: #d8d8d6;
   min-height: 800px;
@@ -2960,7 +2965,7 @@ td {
   animation-delay: 2s;
   animation-fill-mode: forwards; */
 
-  animation: my-item 1s alternate infinite;
+  animation: my-item 1s alternate 10 forwards;
 }
 
 @keyframes my-item {
@@ -2978,7 +2983,7 @@ td {
   }
 
   100% {
-    transform: translateX(600px);
+    transform: translateX(1000px);
   }
 }
 
@@ -3106,15 +3111,18 @@ td {
 /**********************************************************************************/
 
 .bg-play {
-  background: transparent;
+  background-image: linear-gradient(to right top, #1c423a 41%, #7fad64 90%);
+  display: flex;
+  justify-content: center;
 }
 
 .warrior {
   background: url('../images/pngegg.png');
   height: 381px;
   width: 280px;
-  animation: play-run .3s steps(5) infinite;
+  animation: play-run .4s steps(5) infinite;
   /* animation: "name", "time-scene",  "steps" "loop" ; */
+  
 }
 
 @keyframes play-run {
@@ -3131,14 +3139,130 @@ td {
 }
 
 .svg {
-  background: #33aa90;
+  background: #1c423a;
 }
 
 .jeep {
-  padding-top: 20px;
   width: 300px;
   height: 300px;
-  fill: #212121;
-  stroke-dashoffset: 1000;
-  stroke-dasharray: 1000;
+  stroke: #ccc;
+  stroke-width: 3;
+}
+
+.bg-jeep {
+  background: linear-gradient( to left top, #2c1a1a 41%, #253f97 );
+  display: flex;
+  justify-content: center;
+}
+
+.jeep g {
+  fill-opacity: 0;
+  /* fill: #30a864;
+  animation: fade-in 3s 5s infinite; */
+}
+
+.jeep path {
+  stroke-dashoffset: 2390;
+  stroke-dasharray: 2390;
+  animation: draw linear 6s infinite;
+}
+
+@keyframes draw {
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+
+/************** SidebarX ***********************************************/
+
+.side-barX {
+  background: #d8d8d6;
+  width: 100px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: all .5s linear;
+  /* display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center; */
+}
+
+.side-barX:hover {
+  width: 300px;
+}
+
+.wrapX {
+  padding-left: 100px;
+  transition: all .5s linear;
+}
+
+.side-barX:hover + .wrapX {
+  padding-left: 300px;
+}
+
+.bar-list {
+  padding-top: 150px;
+}
+
+.bar-list li {
+  border: 2px solid #000;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 12px 0;
+  background: #000;
+  margin-bottom: 10px;
+}
+
+.bar-list li:hover {
+  background: #253f97;
+  transition: .5s linear;
+  box-shadow: 0 1px 15px #ff7e20;
+}
+
+.bar-link:hover{
+  color: #33aa90;
+}
+
+.bar-link{
+  display: flex;
+  color: #fff;
+  gap: 50px;
+  font-size: 22px;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.bar-link span {
+  border: 3px solid #33aa90;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  transition: .5s linear;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bar-link svg {
+  width: 40px;
+  height: 40px;
+  fill: #33aa90;
+  transform: rotate(45deg);
+  transition: .5s linear;
+}
+
+
+.bar-link:hover svg{
+  fill: #ff7e20;
+  transform: scale(1.6) rotate(45deg);
+  
 }
